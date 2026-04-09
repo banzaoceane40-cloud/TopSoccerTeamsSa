@@ -20,9 +20,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val teamsTxt = findViewById<TextView>(R.id.teamsTxt)
+        var teamsDisplay = ""
+        var count = 0
 
         //re-assigning position 0 of the teams array
         teams [0] = "Man sundowns FC :)"
+
+
+        while (count < teams.count()){
+            teamsDisplay += "${teams[count]}\n"
+            count++
+        }
+        teamsDisplay += "${teams[0]}\n"
+        teamsDisplay += "${teams[1]}\n"
+        teamsDisplay += "${teams[2]}\n"
+        teamsDisplay += "${teams[3]}\n"
+        teamsDisplay += "${teams[4]}\n"
+
         //displaying top soccer team in text view Ui
         teamsTxt.text = Arrays.toString(teams)
 
