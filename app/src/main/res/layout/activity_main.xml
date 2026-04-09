@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Top South African"
@@ -28,7 +28,7 @@
         tools:layout_editor_absoluteY="58dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/teamsTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Teams"
