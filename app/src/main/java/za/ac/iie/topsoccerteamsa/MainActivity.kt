@@ -2,12 +2,18 @@ package za.ac.iie.topsoccerteamsa
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import java.util.Arrays
+
+//created functions to display array values
+fun LogArrValues(arr: Array<String>){
+    Log.v("Array values: ",  Arrays.toString(arr))
+}
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,19 +29,22 @@ class MainActivity : AppCompatActivity() {
         var teamsDisplay = ""
         var count = 0
 
+        //calling LogArrValues functions to log array values
+        LogArrValues(teams)
+
         //re-assigning position 0 of the teams array
         teams [0] = "Man sundowns FC :)"
 
 
-        while (count < teams.count()){
-            teamsDisplay += "${teams[count]}\n"
-            count++
+//        while (count < teams.count()){
+//            teamsDisplay += "${teams[count]}\n"
+//            count++
+//        }
+
+        //for loop to iterate through the team array and display then
+        for (team in teams){
+            teamsDisplay += "${teams}\n"
         }
-        teamsDisplay += "${teams[0]}\n"
-        teamsDisplay += "${teams[1]}\n"
-        teamsDisplay += "${teams[2]}\n"
-        teamsDisplay += "${teams[3]}\n"
-        teamsDisplay += "${teams[4]}\n"
 
         //displaying top soccer team in text view Ui
         teamsTxt.text = Arrays.toString(teams)
