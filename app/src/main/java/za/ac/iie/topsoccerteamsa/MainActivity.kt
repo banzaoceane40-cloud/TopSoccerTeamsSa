@@ -18,7 +18,7 @@ fun LogArrValues(arr: Array<String>, limit: Int =0){
     }
     else
     {
-        Log.v("Arrayvalues:", Arrays.toString(arr.sliceArray(0..limit)))
+        Log.v("Array values:", Arrays.toString(arr.sliceArray(0..limit)))
     }
 }
 
@@ -38,6 +38,25 @@ class MainActivity : AppCompatActivity() {
 
         //calling LogArrValues functions to log array values
         LogArrValues(teams)
+        LogArrValues(teams, 3)
+
+        //calling shortest function
+
+        fun getShortestString(arr: Array<String>): String {
+            var shortestLength = 0
+            var shortestElement = ""
+            for (element in arr) {
+                if (element.count() > shortestLength) {
+                    shortestLength = element.count()
+                    shortestElement = element
+                }
+            }
+
+            return shortestElement
+        }
+
+
+
 
         //re-assigning position 0 of the teams array
         teams [0] = "Man sundowns FC :)"
