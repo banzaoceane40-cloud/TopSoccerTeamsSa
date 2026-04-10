@@ -11,8 +11,15 @@ import androidx.core.view.WindowInsetsCompat
 import java.util.Arrays
 
 //created functions to display array values
-fun LogArrValues(arr: Array<String>){
-    Log.v("Array values: ",  Arrays.toString(arr))
+fun LogArrValues(arr: Array<String>, limit: Int =0){
+    //if statement to check if there is a limit - if there is a limit, cut the array at that index
+    if (limit == 0) {
+        Log.v("Array values: ", Arrays.toString(arr))
+    }
+    else
+    {
+        Log.v("Arrayvalues:", Arrays.toString(arr.sliceArray(0..limit)))
+    }
 }
 
 class MainActivity : AppCompatActivity() {
