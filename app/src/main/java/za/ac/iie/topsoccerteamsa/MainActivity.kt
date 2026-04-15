@@ -11,18 +11,35 @@ import androidx.core.view.WindowInsetsCompat
 import java.util.Arrays
 
 //created functions to display array values
-fun LogArrValues(arr: Array<String>, limit: Int =0){
-    //if statement to check if there is a limit - if there is a limit, cut the array at that index
-    if (limit == 0) {
-        Log.v("Array values: ", Arrays.toString(arr))
+//fun LogArrValues(arr: Array<String>, limit: Int =0){
+//    //if statement to check if there is a limit - if there is a limit, cut the array at that index
+//    if (limit == 0) {
+//        Log.v("Array values: ", Arrays.toString(arr))
+//    }
+//    else
+//    {
+//        Log.v("Array values:", Arrays.toString(arr.sliceArray(0..limit)))
+//    }
+//}
+
+//calling shortest function
+fun getShortestString(arr: Array<String>): String {
+    var shortestLength = 0
+    var shortestElement = ""
+    for (element in arr) {
+        if (element.count() > shortestLength) {
+            shortestLength = element.count()
+            shortestElement = element
+        }
     }
-    else
-    {
-        Log.v("Array values:", Arrays.toString(arr.sliceArray(0..limit)))
-    }
+
+    return shortestElement
 }
 
+//top level function
 class MainActivity : AppCompatActivity() {
+
+    //global function
 
     val teams = arrayOf<String>("Mam Sundowns FC", "Orlando Pirates", "Bidvest wists",
         "Stellenbosch FC", "Sek united FC")
@@ -32,31 +49,15 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        //local function
+
         val teamsTxt = findViewById<TextView>(R.id.teamsTxt)
         var teamsDisplay = ""
         var count = 0
 
         //calling LogArrValues functions to log array values
-        LogArrValues(teams)
-        LogArrValues(teams, 3)
-
-        //calling shortest function
-
-        fun getShortestString(arr: Array<String>): String {
-            var shortestLength = 0
-            var shortestElement = ""
-            for (element in arr) {
-                if (element.count() > shortestLength) {
-                    shortestLength = element.count()
-                    shortestElement = element
-                }
-            }
-
-            return shortestElement
-        }
-
-
-
+//        LogArrValues(teams)
+//        LogArrValues(teams, 3)
 
         //re-assigning position 0 of the teams array
         teams [0] = "Man sundowns FC :)"
