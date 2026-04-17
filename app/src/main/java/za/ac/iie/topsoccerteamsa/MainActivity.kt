@@ -27,7 +27,7 @@ fun getShortestString(arr: Array<String>): String {
     var shortestLength = 0
     var shortestElement = ""
     for (element in arr) {
-        if (element.count() > shortestLength) {
+        if (element.count() < shortestLength) {
             shortestLength = element.count()
             shortestElement = element
         }
@@ -50,31 +50,28 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //local function
-
         val teamsTxt = findViewById<TextView>(R.id.teamsTxt)
         var teamsDisplay = ""
         var count = 0
+        val shortest = getShortestString(teams)
 
         //calling LogArrValues functions to log array values
 //        LogArrValues(teams)
 //        LogArrValues(teams, 3)
 
         //re-assigning position 0 of the teams array
-        teams [0] = "Man sundowns FC :)"
+        teams [0] = "Man sundowns FC"
 
-
-//        while (count < teams.count()){
-//            teamsDisplay += "${teams[count]}\n"
-//            count++
-//        }
-
+//       while (count < teams.count()){
+//           teamsDisplay += "${teams[count]}\n"
+//           count++
+//       }
         //for loop to iterate through the team array and display then
         for (team in teams){
-            teamsDisplay += "${teams}\n"
+            teamsDisplay += "$teams\n"
         }
-
         //displaying top soccer team in text view Ui
-        teamsTxt.text = Arrays.toString(teams)
+        teamsTxt.text = "Top South African Soccer\n\n" + teamsDisplay + "\nShortest team: $shortest"
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
